@@ -1345,10 +1345,11 @@ button{font-family:inherit;cursor:pointer;}
   function flash(dot){
     if (!dot) return;
     dot.animate(
-      [ {opacity:0.85, filter:'drop-shadow(0 0 0 rgba(143,227,234,0))', transform:'scale(1)'},
-        {opacity:1, filter:'drop-shadow(0 0 12px rgba(143,227,234,1))', transform:'scale(1.9)', offset:0.4},
-        {opacity:0.5, filter:'drop-shadow(0 0 0 rgba(143,227,234,0))', transform:'scale(1)'} ],
-      {duration:2300, easing:'ease-in-out'});
+      [ {opacity:0.85, filter:'drop-shadow(0 0 0 rgba(143,227,234,0))', transform:'scale(1)', offset:0},
+        {opacity:1, filter:'drop-shadow(0 0 13px rgba(143,227,234,1))', transform:'scale(1.9)', offset:0.30},
+        {opacity:1, filter:'drop-shadow(0 0 12px rgba(143,227,234,0.95))', transform:'scale(1.8)', offset:0.48},
+        {opacity:0.5, filter:'drop-shadow(0 0 0 rgba(143,227,234,0))', transform:'scale(1)', offset:1} ],
+      {duration:2600, easing:'ease-in-out'});
   }
   function tick(){
     for (var i=0;i<lines.length;i++){
