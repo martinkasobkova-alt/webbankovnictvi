@@ -341,6 +341,10 @@ button{font-family:inherit;cursor:pointer;}
 .lab-table-ring{position:absolute;inset:24px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,rgba(230,200,119,.18),rgba(230,200,119,.03) 72%);}
 .lab-table-ring::after{content:"";position:absolute;inset:12px;border-radius:50%;border:1px dashed rgba(230,200,119,.45);}
 .lab-seat{position:absolute;width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--navy-900);box-shadow:0 0 0 1.5px var(--gold);transform:translate(-50%,-50%);}
+@keyframes tableSpin{to{transform:rotate(360deg);}}
+@keyframes seatSpin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(-360deg);}}
+.lab-table{animation:tableSpin 80s linear infinite;} .lab-seat{animation:seatSpin 80s linear infinite;}
+@media (prefers-reduced-motion:reduce){.lab-table,.lab-seat{animation:none;}}
 .lab-seat-open{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1.5px dashed rgba(230,200,119,.85);box-shadow:none;color:var(--gold);font-family:var(--font-head);font-weight:800;font-size:17px;line-height:1;}
 .lab-tag{display:inline-block;margin:-4px 0 12px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);}
 .lab-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
