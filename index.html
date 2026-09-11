@@ -331,7 +331,8 @@ button{font-family:inherit;cursor:pointer;}
 .t-mod{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14px;color:var(--gray-600);}
 .t-mod img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;}
 .t-mod b{color:var(--navy-800);}
-.lab-people{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:20px;position:relative;z-index:1;}
+.lab-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px 10px;margin-top:20px;position:relative;z-index:1;}
+.lab-people .t-person{width:100%;}
 .lab-people .t-person{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff;box-shadow:none;}
 .lab-people .t-person small{color:#b7c3d4;}
 .lab-people .t-person.is-open{color:#c9d3e2;background:transparent;border-color:rgba(255,255,255,.3);}
