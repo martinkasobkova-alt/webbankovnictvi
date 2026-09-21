@@ -502,7 +502,7 @@ button{font-family:inherit;cursor:pointer;}
 .venue-map-link{display:block;}
 .venue-map-inset{position:relative;flex:0 0 150px;width:150px;display:block;border-radius:10px;overflow:hidden;background:#fff;border:2px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.18);transition:transform .2s ease,box-shadow .2s ease;}
 .venue-map-inset{padding:0;cursor:zoom-in;font:inherit;text-align:left;}
-.venue-thumbs{display:flex;gap:8px;flex-shrink:0;} .venue-thumbs .venue-map-inset{flex:0 0 128px;width:128px;}
+.venue-entry > .venue-thumbs{display:flex;gap:8px;flex:0 0 auto;min-width:0;} .venue-thumbs .venue-map-inset{flex:0 0 128px;width:128px;}
 .map-lightbox-inner img[hidden]{display:none;}
 .map-lightbox-inner img{max-height:calc(100vh - 170px);}
 .lb-credit{display:block;font-style:normal;font-size:11.5px;color:var(--gray-600);margin-top:4px;} .lb-credit a{color:inherit;text-decoration:underline;}
@@ -518,7 +518,7 @@ button{font-family:inherit;cursor:pointer;}
 .venue-map-inset img{display:block;width:100%;height:auto;}
 .vmi-label{display:block;background:var(--navy-900);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:4px 6px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .vmi-attr{position:absolute;right:3px;bottom:2px;font-size:7.5px;line-height:1.3;color:#333;background:rgba(255,255,255,.8);padding:0 3px;border-radius:3px;}
-@media (max-width:560px){.venue-entry{flex-wrap:wrap;} .venue-thumbs{flex:1 1 100%;margin-top:6px;} .venue-thumbs .venue-map-inset{flex:1 1 0;width:auto;min-width:0;} .venue-map-inset img{max-height:130px;object-fit:cover;object-position:50% 45%;}}
+@media (max-width:560px){.venue-entry{flex-wrap:wrap;} .venue-entry > .venue-thumbs{flex:1 1 100%;margin-top:6px;} .venue-thumbs .venue-map-inset{flex:1 1 0;width:auto;min-width:0;} .venue-map-inset img{max-height:130px;object-fit:cover;object-position:50% 45%;}}
 .hero-meta-entry{color:var(--gold);} .hero-meta-entry svg{color:var(--gold);}
 .venue-info h3{font-size:15px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray-500);font-weight:700;margin-bottom:6px;}
 .venue-info .venue-name{font-size:26px;color:var(--navy-900);margin-bottom:28px;font-weight:800;}
