@@ -521,6 +521,37 @@ button{font-family:inherit;cursor:pointer;}
 .map-lightbox-inner img{max-height:calc(100vh - 170px);}
 .lb-credit{display:block;font-style:normal;font-size:11.5px;color:var(--gray-600);margin-top:4px;} .lb-credit a{color:inherit;text-decoration:underline;}
 .venue-map-inset:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.25);}
+
+/* --- fotogalerie --- */
+.section.gallery{padding-top:72px;}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.g-grid .g-more{display:contents;}
+.g-grid .g-more[hidden]{display:none;}
+.g-item{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:10px;background:var(--gray-100);box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease;}
+.cd-grid[hidden],.cd-mini-grid[hidden]{display:none!important;}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block;transition:transform .5s ease;}
+.g-item:hover{box-shadow:0 0 0 2px var(--gold),var(--shadow-md);transform:translateY(-2px);}
+.g-item:hover img{transform:scale(1.04);}
+.g-item:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.g-actions{display:flex;justify-content:center;margin-top:28px;}
+.g-actions[hidden]{display:none;}
+.g-note{margin-top:18px;text-align:center;font-size:13px;color:var(--gray-600);}
+@media (max-width:900px){.g-grid{grid-template-columns:repeat(3,1fr);gap:10px;}}
+@media (max-width:560px){.g-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:28px;} .g-item{border-radius:8px;} .section.gallery{padding-top:52px;}}
+.gal-lightbox{position:fixed;inset:0;z-index:1100;background:rgba(7,15,31,.94);display:flex;align-items:center;justify-content:center;}
+.gal-lightbox[hidden]{display:none;}
+.gal-stage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:56px 72px 64px;}
+.gal-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);background:#0a152b;user-select:none;}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(10,21,43,.75);color:#fff;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;}
+.gal-btn:hover{background:rgba(227,196,107,.95);border-color:var(--gold);color:var(--navy-900);}
+.gal-prev{left:14px;} .gal-next{right:14px;}
+.gal-close{position:absolute;top:12px;right:14px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:28px;line-height:1;cursor:pointer;z-index:2;}
+.gal-close:hover{background:var(--gold);color:var(--navy-900);}
+.gal-count{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:rgba(255,255,255,.75);font-size:13px;letter-spacing:.08em;}
+.gal-count b{color:var(--gold);font-weight:700;}
+@media (max-width:700px){.gal-stage{padding:52px 10px 60px;} .gal-btn{width:42px;height:42px;font-size:24px;background:rgba(10,21,43,.6);} .gal-prev{left:6px;} .gal-next{right:6px;}}
+.cd-done .btn{margin-top:18px;font-size:14px;}
+.cd-done-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;}
 .map-lightbox{position:fixed;inset:0;z-index:1000;background:rgba(7,15,31,.82);display:flex;align-items:center;justify-content:center;padding:24px;}
 .map-lightbox[hidden]{display:none;}
 .map-lightbox-inner{position:relative;background:#fff;border-radius:14px;overflow:hidden;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.5);}
@@ -678,7 +709,8 @@ button{font-family:inherit;cursor:pointer;}
       <span class="brand-logo" role="img" aria-label="Czech Financial Powerhouse Summit 2026"></span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Hlavní navigace">
-      <a href="#o-konferenci">O konferenci</a>
+      <a href="#fotogalerie">Fotogalerie</a>
+        <a href="#o-konferenci">O konferenci</a>
       <a href="#program">Program</a>
       <a href="#recnici">Řečníci</a>
       <a href="#policy-labs">Policy Labs</a>
@@ -780,7 +812,7 @@ button{font-family:inherit;cursor:pointer;}
           </div>
         </div>
         <div class="hero-ctas">
-        <a href="#registrace" class="btn btn-primary" data-analytics="cta-hero-primary">Mám zájem o účast</a>
+        <a href="#fotogalerie" class="btn btn-primary" data-analytics="cta-hero-primary">Prohlédnout fotogalerii</a>
         <a href="#program" class="btn btn-outline" data-analytics="cta-hero-secondary">Zobrazit program</a>
       </div>
       <a class="hero-slido" href="https://app.sli.do/event/o4u4PubeHdS3VqTvHrAtxa" target="_blank" rel="noopener" data-analytics="cta-hero-slido">
@@ -805,7 +837,93 @@ button{font-family:inherit;cursor:pointer;}
         <div class="cd-unit"><div class="cd-num" id="cdM">–</div><div class="cd-lbl">Minuty</div></div>
         <div class="cd-unit"><div class="cd-num" id="cdS">–</div><div class="cd-lbl">Sekundy</div></div>
       </div>
-      <p class="cd-done" id="cdDone" hidden>Czech Financial Powerhouse Summit 2026 právě probíhá.</p>
+      <div class="cd-done cd-done-wrap" id="cdDone" hidden><span>Czech Financial Powerhouse Summit 2026 proběhl <strong>29. září 2026</strong>. Děkujeme všem, kteří přišli.</span><a href="#fotogalerie" class="btn btn-primary">Fotogalerie z konference</a></div>
+    </div>
+  </section>
+
+  <!-- ============ FOTOGALERIE ============ -->
+  <section class="section gallery alt-bg" id="fotogalerie">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Fotogalerie</p>
+        <h2>Ohlédnutí za konferencí</h2>
+        <p>Czech Financial Powerhouse Summit 2026 proběhl 29. září 2026 ve Skleněném sále Ministerstva průmyslu a obchodu. Děkujeme všem řečníkům, partnerům a účastníkům.</p>
+      </div>
+      <div class="g-grid reveal" id="galGrid">
+        <a class="g-item portrait" href="galerie/01.webp" data-i="0" data-w="1333" data-h="2000"><img src="galerie/nahledy/01.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 1" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item" href="galerie/02.webp" data-i="1" data-w="2000" data-h="1333"><img src="galerie/nahledy/02.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 2" loading="lazy" width="720" height="480"></a>
+        <a class="g-item portrait" href="galerie/03.webp" data-i="2" data-w="1333" data-h="2000"><img src="galerie/nahledy/03.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 3" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item" href="galerie/04.webp" data-i="3" data-w="2000" data-h="1333"><img src="galerie/nahledy/04.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 4" loading="lazy" width="720" height="480"></a>
+        <a class="g-item portrait" href="galerie/05.webp" data-i="4" data-w="1333" data-h="2000"><img src="galerie/nahledy/05.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 5" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item" href="galerie/06.webp" data-i="5" data-w="2000" data-h="1333"><img src="galerie/nahledy/06.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 6" loading="lazy" width="720" height="480"></a>
+        <a class="g-item portrait" href="galerie/07.webp" data-i="6" data-w="1333" data-h="2000"><img src="galerie/nahledy/07.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 7" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item" href="galerie/08.webp" data-i="7" data-w="2000" data-h="1333"><img src="galerie/nahledy/08.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 8" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/09.webp" data-i="8" data-w="2000" data-h="1333"><img src="galerie/nahledy/09.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 9" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/10.webp" data-i="9" data-w="2000" data-h="1333"><img src="galerie/nahledy/10.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 10" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/11.webp" data-i="10" data-w="2000" data-h="1333"><img src="galerie/nahledy/11.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 11" loading="lazy" width="720" height="480"></a>
+        <a class="g-item portrait" href="galerie/12.webp" data-i="11" data-w="1333" data-h="2000"><img src="galerie/nahledy/12.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 12" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item" href="galerie/13.webp" data-i="12" data-w="2000" data-h="1333"><img src="galerie/nahledy/13.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 13" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/14.webp" data-i="13" data-w="2000" data-h="1333"><img src="galerie/nahledy/14.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 14" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/15.webp" data-i="14" data-w="2000" data-h="1333"><img src="galerie/nahledy/15.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 15" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/16.webp" data-i="15" data-w="2000" data-h="1333"><img src="galerie/nahledy/16.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 16" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/17.webp" data-i="16" data-w="2000" data-h="1333"><img src="galerie/nahledy/17.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 17" loading="lazy" width="720" height="480"></a>
+        <a class="g-item" href="galerie/18.webp" data-i="17" data-w="2000" data-h="1333"><img src="galerie/nahledy/18.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 18" loading="lazy" width="720" height="480"></a>
+        <a class="g-item portrait" href="galerie/19.webp" data-i="18" data-w="1333" data-h="2000"><img src="galerie/nahledy/19.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 19" loading="lazy" width="720" height="1080"></a>
+        <a class="g-item portrait" href="galerie/20.webp" data-i="19" data-w="1334" data-h="2000"><img src="galerie/nahledy/20.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 20" loading="lazy" width="720" height="1079"></a>
+        <div class="g-more" id="galMore" hidden>
+          <a class="g-item portrait" href="galerie/21.webp" data-i="20" data-w="1333" data-h="2000"><img src="galerie/nahledy/21.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 21" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item portrait" href="galerie/22.webp" data-i="21" data-w="1333" data-h="2000"><img src="galerie/nahledy/22.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 22" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item portrait" href="galerie/23.webp" data-i="22" data-w="1333" data-h="2000"><img src="galerie/nahledy/23.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 23" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item portrait" href="galerie/24.webp" data-i="23" data-w="1333" data-h="2000"><img src="galerie/nahledy/24.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 24" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item portrait" href="galerie/25.webp" data-i="24" data-w="1333" data-h="2000"><img src="galerie/nahledy/25.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 25" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/26.webp" data-i="25" data-w="2000" data-h="1333"><img src="galerie/nahledy/26.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 26" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/27.webp" data-i="26" data-w="2000" data-h="1333"><img src="galerie/nahledy/27.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 27" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/28.webp" data-i="27" data-w="1334" data-h="2000"><img src="galerie/nahledy/28.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 28" loading="lazy" width="720" height="1079"></a>
+          <a class="g-item" href="galerie/29.webp" data-i="28" data-w="2000" data-h="1333"><img src="galerie/nahledy/29.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 29" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/30.webp" data-i="29" data-w="2000" data-h="1333"><img src="galerie/nahledy/30.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 30" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/31.webp" data-i="30" data-w="2000" data-h="1333"><img src="galerie/nahledy/31.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 31" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/32.webp" data-i="31" data-w="2000" data-h="1333"><img src="galerie/nahledy/32.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 32" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/33.webp" data-i="32" data-w="2000" data-h="1333"><img src="galerie/nahledy/33.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 33" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/34.webp" data-i="33" data-w="2000" data-h="1333"><img src="galerie/nahledy/34.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 34" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/35.webp" data-i="34" data-w="2000" data-h="1333"><img src="galerie/nahledy/35.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 35" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/36.webp" data-i="35" data-w="2000" data-h="1333"><img src="galerie/nahledy/36.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 36" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/37.webp" data-i="36" data-w="2000" data-h="1333"><img src="galerie/nahledy/37.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 37" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/38.webp" data-i="37" data-w="2000" data-h="1334"><img src="galerie/nahledy/38.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 38" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/39.webp" data-i="38" data-w="1333" data-h="2000"><img src="galerie/nahledy/39.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 39" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/40.webp" data-i="39" data-w="2000" data-h="1334"><img src="galerie/nahledy/40.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 40" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/41.webp" data-i="40" data-w="1333" data-h="2000"><img src="galerie/nahledy/41.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 41" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/42.webp" data-i="41" data-w="2000" data-h="1333"><img src="galerie/nahledy/42.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 42" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/43.webp" data-i="42" data-w="2000" data-h="1333"><img src="galerie/nahledy/43.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 43" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/44.webp" data-i="43" data-w="1333" data-h="2000"><img src="galerie/nahledy/44.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 44" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/45.webp" data-i="44" data-w="2000" data-h="1333"><img src="galerie/nahledy/45.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 45" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/46.webp" data-i="45" data-w="2000" data-h="1333"><img src="galerie/nahledy/46.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 46" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/47.webp" data-i="46" data-w="2000" data-h="1333"><img src="galerie/nahledy/47.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 47" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/48.webp" data-i="47" data-w="1333" data-h="2000"><img src="galerie/nahledy/48.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 48" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/49.webp" data-i="48" data-w="2000" data-h="1333"><img src="galerie/nahledy/49.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 49" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/50.webp" data-i="49" data-w="2000" data-h="1333"><img src="galerie/nahledy/50.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 50" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/51.webp" data-i="50" data-w="2000" data-h="1333"><img src="galerie/nahledy/51.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 51" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/52.webp" data-i="51" data-w="2000" data-h="1333"><img src="galerie/nahledy/52.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 52" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/53.webp" data-i="52" data-w="2000" data-h="1333"><img src="galerie/nahledy/53.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 53" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/54.webp" data-i="53" data-w="2000" data-h="1333"><img src="galerie/nahledy/54.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 54" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/55.webp" data-i="54" data-w="2000" data-h="1333"><img src="galerie/nahledy/55.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 55" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/56.webp" data-i="55" data-w="2000" data-h="1333"><img src="galerie/nahledy/56.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 56" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/57.webp" data-i="56" data-w="2000" data-h="1333"><img src="galerie/nahledy/57.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 57" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/58.webp" data-i="57" data-w="2000" data-h="1334"><img src="galerie/nahledy/58.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 58" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/59.webp" data-i="58" data-w="2000" data-h="1333"><img src="galerie/nahledy/59.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 59" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/60.webp" data-i="59" data-w="2000" data-h="1333"><img src="galerie/nahledy/60.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 60" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/61.webp" data-i="60" data-w="2000" data-h="1333"><img src="galerie/nahledy/61.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 61" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/62.webp" data-i="61" data-w="1333" data-h="2000"><img src="galerie/nahledy/62.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 62" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/63.webp" data-i="62" data-w="2000" data-h="1333"><img src="galerie/nahledy/63.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 63" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/64.webp" data-i="63" data-w="1333" data-h="2000"><img src="galerie/nahledy/64.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 64" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/65.webp" data-i="64" data-w="2000" data-h="1334"><img src="galerie/nahledy/65.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 65" loading="lazy" width="720" height="480"></a>
+          <a class="g-item portrait" href="galerie/66.webp" data-i="65" data-w="1333" data-h="2000"><img src="galerie/nahledy/66.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 66" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item portrait" href="galerie/67.webp" data-i="66" data-w="1333" data-h="2000"><img src="galerie/nahledy/67.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 67" loading="lazy" width="720" height="1080"></a>
+          <a class="g-item" href="galerie/68.webp" data-i="67" data-w="2000" data-h="1333"><img src="galerie/nahledy/68.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 68" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/69.webp" data-i="68" data-w="2000" data-h="1333"><img src="galerie/nahledy/69.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 69" loading="lazy" width="720" height="480"></a>
+          <a class="g-item" href="galerie/70.webp" data-i="69" data-w="2000" data-h="1333"><img src="galerie/nahledy/70.webp" alt="Czech Financial Powerhouse Summit 2026, fotografie 70" loading="lazy" width="720" height="480"></a>
+        </div>
+      </div>
+      <div class="g-actions"><button type="button" class="btn btn-navy" id="galMoreBtn">Zobrazit všech 70 fotografií</button></div>
     </div>
   </section>
 
@@ -1762,7 +1880,7 @@ button{font-family:inherit;cursor:pointer;}
   var iv;
   function tick(){
     var diff=target-Date.now();
-    if(diff<=0){ grid.hidden=true; head.hidden=true; done.hidden=false; var mn=document.querySelector('.cd-mini'); if(mn) mn.hidden=true; if(iv) clearInterval(iv); return; }
+    if(diff<=0){ grid.hidden=true; head.hidden=true; done.hidden=false; var mn=document.querySelector('.cd-mini'); if(mn){ var mh=mn.querySelector('.cd-mini-head'), mg=mn.querySelector('.cd-mini-grid'); if(mh) mh.textContent='Konference proběhla 29. září 2026 · děkujeme všem účastníkům'; if(mg) mg.hidden=true; } if(iv) clearInterval(iv); return; }
     var s=Math.floor(diff/1000);
     var d=Math.floor(s/86400); s-=d*86400;
     var hh=Math.floor(s/3600); s-=hh*3600;
@@ -1771,6 +1889,35 @@ button{font-family:inherit;cursor:pointer;}
     var mini={d:String(d),h:pad(hh),m:pad(m),s:pad(sec)}; var ms=document.querySelectorAll('[data-cd]'); for(var i=0;i<ms.length;i++){ var k=ms[i].getAttribute('data-cd'); if(ms[i].textContent!==mini[k]) ms[i].textContent=mini[k]; }
   }
   tick(); iv=setInterval(tick,1000);
+})();
+</script>
+  <div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-label="Fotografie z konference" hidden>
+    <button type="button" class="gal-close" id="galClose" aria-label="Zavřít">&times;</button>
+    <div class="gal-stage" id="galStage">
+      <button type="button" class="gal-btn gal-prev" id="galPrev" aria-label="Předchozí fotografie">&#8249;</button>
+      <img id="galImg" src="" alt="">
+      <button type="button" class="gal-btn gal-next" id="galNext" aria-label="Další fotografie">&#8250;</button>
+    </div>
+    <div class="gal-count" id="galCount"></div>
+  </div>
+<script>
+(function(){
+  var grid=document.getElementById('galGrid'), box=document.getElementById('galLightbox'); if(!grid||!box) return;
+  var items=Array.prototype.slice.call(grid.querySelectorAll('.g-item')), img=document.getElementById('galImg'), cnt=document.getElementById('galCount');
+  var cls=document.getElementById('galClose'), prev=document.getElementById('galPrev'), next=document.getElementById('galNext'), stage=document.getElementById('galStage');
+  var cur=0, lastBtn=null;
+  function preload(i){ var it=items[(i+items.length)%items.length]; if(it){ var im=new Image(); im.src=it.getAttribute('href'); } }
+  function show(i){ cur=(i+items.length)%items.length; var it=items[cur]; img.src=it.getAttribute('href'); img.alt=it.querySelector('img').alt; cnt.innerHTML='<b>'+(cur+1)+'</b> / '+items.length; preload(cur+1); preload(cur-1); }
+  function open(i,btn){ lastBtn=btn||null; show(i); box.hidden=false; document.body.style.overflow='hidden'; cls.focus(); }
+  function close(){ box.hidden=true; document.body.style.overflow=''; img.src=''; if(lastBtn) lastBtn.focus(); }
+  items.forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); open(parseInt(a.getAttribute('data-i'),10), a); }); });
+  cls.addEventListener('click', close); prev.addEventListener('click', function(){ show(cur-1); }); next.addEventListener('click', function(){ show(cur+1); });
+  stage.addEventListener('click', function(e){ if(e.target===stage) close(); });
+  document.addEventListener('keydown', function(e){ if(box.hidden) return; if(e.key==='Escape') close(); else if(e.key==='ArrowRight') show(cur+1); else if(e.key==='ArrowLeft') show(cur-1); });
+  var tx=null; box.addEventListener('touchstart', function(e){ tx=e.changedTouches[0].clientX; }, {passive:true});
+  box.addEventListener('touchend', function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>50){ show(dx<0?cur+1:cur-1); } }, {passive:true});
+  var more=document.getElementById('galMore'), moreBtn=document.getElementById('galMoreBtn');
+  if(more&&moreBtn){ moreBtn.addEventListener('click', function(){ more.hidden=false; moreBtn.parentNode.hidden=true; }); }
 })();
 </script>
   <div class="map-lightbox" id="mapLightbox" role="dialog" aria-modal="true" aria-label="Mapa vstupu z ulice Řásnovka" hidden>
