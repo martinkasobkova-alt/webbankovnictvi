@@ -1880,7 +1880,7 @@ button{font-family:inherit;cursor:pointer;}
   var iv;
   function tick(){
     var diff=target-Date.now();
-    if(diff<=0){ grid.hidden=true; head.hidden=true; done.hidden=false; var mn=document.querySelector('.cd-mini'); if(mn){ var mh=mn.querySelector('.cd-mini-head'), mg=mn.querySelector('.cd-mini-grid'); if(mh) mh.textContent='Konference proběhla 29. září 2026 · děkujeme všem účastníkům'; if(mg) mg.hidden=true; } if(iv) clearInterval(iv); return; }
+    if(diff<=0){ grid.hidden=true; head.hidden=true; done.hidden=false; var mn=document.querySelector('.cd-mini'); if(mn){ var mh=mn.querySelector('.cd-mini-head'), mg=mn.querySelector('.cd-mini-grid'); if(mh) mh.textContent='Konference proběhla 29. září 2026 · děkujeme všem účastníkům'; if(mg) mg.hidden=true; } var sl=document.querySelector('.hero-slido'); if(sl) sl.style.display='none'; if(iv) clearInterval(iv); return; }
     var s=Math.floor(diff/1000);
     var d=Math.floor(s/86400); s-=d*86400;
     var hh=Math.floor(s/3600); s-=hh*3600;
