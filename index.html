@@ -848,7 +848,7 @@ button{font-family:inherit;cursor:pointer;}
       </div>
       <div class="hero-video" id="heroVideo">
         <button type="button" class="hero-video-btn" id="heroVideoBtn" aria-haspopup="dialog" aria-controls="videoLightbox" aria-label="Přehrát video z konference se zvukem (2 minuty 24 sekund)">
-          <video class="hero-loop" id="heroLoop" muted loop playsinline preload="none" poster="video/smycka_poster.jpg" aria-hidden="true" tabindex="-1"><source src="video/cfps2026_smycka.mp4" type="video/mp4"></video>
+          <video class="hero-loop" id="heroLoop" muted loop playsinline preload="none" poster="video/smycka_poster.jpg?v=2" aria-hidden="true" tabindex="-1"><source src="video/cfps2026_smycka.mp4?v=2" type="video/mp4"></video>
           <span class="hero-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           <span class="hero-video-label" aria-hidden="true"><small>Video z konference</small><strong>Přehrát se zvukem · 2:24</strong></span>
         </button>
@@ -1922,7 +1922,7 @@ button{font-family:inherit;cursor:pointer;}
 </script>
   <div class="video-lightbox" id="videoLightbox" role="dialog" aria-modal="true" aria-label="Video z konference" hidden>
     <button type="button" class="gal-close" id="videoClose" aria-label="Zavřít">&times;</button>
-    <video id="fullVideo" controls playsinline preload="none" poster="video/cfps2026_poster.jpg"></video>
+    <video id="fullVideo" controls playsinline preload="none" poster="video/cfps2026_poster.jpg?v=2"></video>
   </div>
 <script>
 (function(){
@@ -1931,7 +1931,7 @@ button{font-family:inherit;cursor:pointer;}
   var big=window.matchMedia&&window.matchMedia('(min-width:1000px)').matches, reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function play(el){ var p=el.play(); if(p&&p.catch) p.catch(function(){}); }
   if(big&&!reduce){ v.preload='auto'; v.load(); play(v); }
-  function open(){ box.hidden=false; document.body.style.overflow='hidden'; v.pause(); if(!fv.getAttribute('src')) fv.setAttribute('src','video/cfps2026.mp4'); play(fv); cls.focus(); }
+  function open(){ box.hidden=false; document.body.style.overflow='hidden'; v.pause(); if(!fv.getAttribute('src')) fv.setAttribute('src','video/cfps2026.mp4?v=2'); play(fv); cls.focus(); }
   function close(){ fv.pause(); box.hidden=true; document.body.style.overflow=''; if(big&&!reduce) play(v); btn.focus(); }
   btn.addEventListener('click', open); cls.addEventListener('click', close);
   box.addEventListener('click', function(e){ if(e.target===box) close(); });
